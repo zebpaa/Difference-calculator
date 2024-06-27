@@ -9,6 +9,6 @@ program
   .version('0.0.1')
   .option('-f, --format [type]', 'output format')
   .action((path1, path2) => {
-    gendiff(path1, path2);
+    gendiff(path1, path2, program.opts().format);
   })
   .parse();
