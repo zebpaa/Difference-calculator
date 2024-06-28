@@ -10,7 +10,7 @@ const formateToJson = (tree) => {
       result[`+ ${obj.key}`] = obj.value2;
     } else result[`  ${obj.key}`] = obj.value;
   });
-  return JSON.stringify(result);
+  return JSON.stringify(result, null, 2);
 };
 
 export default formateToJson;
