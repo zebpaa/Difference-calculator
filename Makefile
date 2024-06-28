@@ -10,5 +10,3 @@ watch:
 	npm run test -- --watch
 test-coverage:
 	npm test -- --coverage --coverageProvider=v8
-publish:
-	npm publish
