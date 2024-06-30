@@ -18,11 +18,11 @@ const stringify = (value, replacer = ' ', spacesCount = 1) => {
   return iter(value, 1);
 };
 
-const formateToJson = (tree) => {
+const formateToStylish = (tree) => {
   const result = {};
   // eslint-disable-next-line array-callback-return
   tree.map((obj) => {
-    if (obj.type === 'nested') formateToJson(obj.children);
+    if (obj.type === 'nested') formateToStylish(obj.children);
     else if (obj.type === 'added') result[`+ ${obj.key}`] = obj.value;
     else if (obj.type === 'deleted') result[`- ${obj.key}`] = obj.value;
     else if (obj.type === 'changed') {
@@ -34,4 +34,4 @@ const formateToJson = (tree) => {
   return stringify(result, ' ', 1);
 };
 
-export default formateToJson;
+export default formateToStylish;
