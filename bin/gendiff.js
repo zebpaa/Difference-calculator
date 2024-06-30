@@ -8,7 +8,7 @@ program
   .helpOption('-h, --help', 'output usage information')
   .version('0.0.1')
   .option('-f, --format [type]', 'output format', 'stylish')
-  .action((path1, path2) => {
-    gendiff(path1, path2, program.opts().format);
+  .action((path1, path2, options) => {
+    gendiff(path1, path2, options.format);
   })
   .parse();
