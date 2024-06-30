@@ -8,7 +8,7 @@ const fullFilePath = (filepath) => path.resolve(process.cwd(), filepath);
 const extractFormat = (filepath) => path.extname(filepath).slice(1);
 const getData = (filepath) => parse(fs.readFileSync(filepath, 'utf-8'), extractFormat(filepath));
 
-const gendiff = (filepath1, filepath2) => {
+const gendiff = (filepath1, filepath2, formatName) => {
   const fullFilePath1 = fullFilePath(filepath1);
   const fullFilePath2 = fullFilePath(filepath2);
   const data1 = getData(fullFilePath1);
@@ -17,7 +17,7 @@ const gendiff = (filepath1, filepath2) => {
   // console.log('data2: ', data2);
   const tree = buildTree(data1, data2);
   // console.log('Tree:', tree);
-  const formatedTree = format(tree);
+  const formatedTree = format(tree, formatName);
   // console.log('##########################');
   // console.log('Форматированное дерево:', formatedTree);
   return formatedTree;
