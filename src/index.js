@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import parse from './parsers.js';
 import buildTree from './treeBuilder.js';
-import format from './formatters/json.js';
+import format from './formatters/stylish.js';
 
 const fullFilePath = (filepath) => path.resolve(process.cwd(), filepath);
 const extractFormat = (filepath) => path.extname(filepath).slice(1);
