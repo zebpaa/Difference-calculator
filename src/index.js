@@ -16,7 +16,7 @@ const gendiff = (filepath1, filepath2) => {
   // console.log('data1: ', data1);
   // console.log('data2: ', data2);
   const tree = buildTree(data1, data2);
-  console.log('Tree:', tree);
+  // console.log('Tree:', tree);
   const formatedTree = format(tree);
   // console.log('##########################');
   // console.log('Форматированное дерево:', formatedTree);
