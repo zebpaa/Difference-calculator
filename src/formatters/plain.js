@@ -6,7 +6,8 @@ const formateToPlain = (tree) => {
     if (obj.type === 'changed') return `Property '${obj.key}' was updated. From ${obj.value1} to ${obj.value2}`;
     return [];
   });
-  return formatedTree.map((obj) => console.log(obj));
+  const result = formatedTree.map((obj) => obj);
+  return result.join('\n');
 };
 
 export default formateToPlain;

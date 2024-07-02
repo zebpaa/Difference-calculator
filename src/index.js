@@ -13,13 +13,10 @@ const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
   const fullFilePath2 = fullFilePath(filepath2);
   const data1 = getData(fullFilePath1);
   const data2 = getData(fullFilePath2);
-  // console.log('data1: ', data1);
-  // console.log('data2: ', data2);
   const tree = buildTree(data1, data2);
-  // console.log('Tree:', tree);
   const formatedTree = format(tree, formatName);
-  // console.log('##########################');
-  // console.log('Форматированное дерево:', formatedTree);
+  console.log('##########################');
+  console.log('Форматированное дерево:', formatedTree);
   return formatedTree;
 };
 
