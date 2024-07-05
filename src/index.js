@@ -15,8 +15,6 @@ const gendiff = (filepath1, filepath2, formatName = 'stylish') => {
   const data2 = getData(fullFilePath2);
   const tree = buildTree(data1, data2);
   const formatedTree = format(tree, formatName);
-  console.log('##########################');
-  console.log('Форматированное дерево:', formatedTree);
   return formatedTree;
 };
 
