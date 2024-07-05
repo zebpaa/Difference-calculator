@@ -1,37 +1,50 @@
 import _ from 'lodash';
 
-const stringify = (value, replacer = ' ', spacesCount = 4) => {
-  const iter = (currentValue, depth) => {
-    // альтернативный вариант: (typeof currentValue !== 'object' || currentValue === null)
-    if (!_.isObject(currentValue)) {
-      return `${currentValue}`;
-    }
-    const shifting = spacesCount - 2;
-    const indentSize = depth * spacesCount;
-    const bracketIndent = replacer.repeat(depth * spacesCount - spacesCount);
-    const lines = Object.entries(currentValue).map(([key, val]) => `${(key.includes(' ')) ? replacer.repeat(indentSize - shifting) : replacer.repeat(indentSize)}${key}: ${iter(val, depth + 1)}`);
+const indent = (depth) => {
+  const str = ' ';
+  const marginsNumber = 4;
+  return str.repeat(depth * marginsNumber - 2);
+};
 
-    return ['{', ...lines, `${bracketIndent}}`].join('\n');
-  };
+const indentBracket = (depth) => {
+  const str = ' ';
+  const marginsNumber = 4;
+  return str.repeat(depth * marginsNumber - marginsNumber);
+};
 
-  return iter(value, 1);
+const stringify = (value, depth) => {
+  if (!_.isObject(value)) {
+    return `${value}`;
+  }
+  const entries = Object.entries(value);
+  const lines = entries.map(([key, val]) => `  ${indent(depth + 1)}${key}: ${stringify(val, depth + 1)}`);
+  return (['{', ...lines, `  ${indent(depth)}}`].join('\n'));
 };
 
 const formateToStylish = (tree) => {
-  const result = {};
-  // eslint-disable-next-line array-callback-return
-  tree.map((obj) => {
-    if (obj.type === 'nested') result[`${obj.key}`] = formateToStylish(obj.children);
-    if (obj.type === 'added') result[`+ ${obj.key}`] = obj.value;
-    if (obj.type === 'deleted') result[`- ${obj.key}`] = obj.value;
-    if (obj.type === 'changed') {
-      result[`- ${obj.key}`] = obj.value1;
-      result[`+ ${obj.key}`] = obj.value2;
-    }
-    if (obj.type === 'unchanged') result[`  ${obj.key}`] = obj.value;
-  });
-  console.log(result);
-  return stringify(result, ' ', 4);
+  const iter = (node, depth) => {
+    // eslint-disable-next-line array-callback-return, consistent-return
+    const result = node.map((child) => {
+      if (child.type === 'nested') {
+        return `${indent(depth)}  ${child.key}: ${iter(child.children, depth + 1)}`;
+      }
+      if (child.type === 'deleted') {
+        return `${indent(depth)}- ${child.key}: ${stringify(child.value, depth)}`;
+      }
+      if (child.type === 'added') {
+        return `${indent(depth)}+ ${child.key}: ${stringify(child.value, depth)}`;
+      }
+      if (child.type === 'changed') {
+        return `${indent(depth)}- ${child.key}: ${stringify(child.value1, depth)}\n${indent(depth)}+ ${child.key}: ${stringify(child.value2, depth)}`;
+      }
+      if (child.type === 'unchanged') {
+        return `${indent(depth)}  ${child.key}: ${stringify(child.value, depth)}`;
+      }
+    });
+    return ['{', ...result, `${indentBracket(depth)}}`].join('\n');
+  };
+
+  return iter(tree, 1);
 };
 
 export default formateToStylish;
