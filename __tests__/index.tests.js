@@ -25,11 +25,10 @@ test('Сравнение плоских файлов (yaml)', () => {
   expect(gendiff(filepath1, filepath2)).toEqual(result);
 });
 
-test('Рекурсивное сравнение', () => {
+test('Рекурсивное сравнение (из проекта)', () => {
   const filepath1 = getFixturePath('file1.json');
   const filepath2 = getFixturePath('file2.json');
-  // readFile('file1.yaml');
-  // readFile('file2.yml');
+
   const result = `{
     common: {
       + follow: false
@@ -43,7 +42,7 @@ test('Рекурсивное сравнение', () => {
         }
         setting6: {
             doge: {
-              - wow:
+              - wow: 
               + wow: so much
             }
             key: value
