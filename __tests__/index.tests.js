@@ -127,12 +127,10 @@ Property 'group3' was added with value: [complex value]`;
   expect(gendiff(filepath1, filepath2, 'plain')).toEqual(result);
 });
 
-// test('Вывод в json', () => {
-//   const filepath1 = getFixturePath('file1.json');
-//   const filepath2 = getFixturePath('file2.json');
-//   // readFile('file1.yaml');
-//   // readFile('file2.yml');
-//   const result = '';
+test('Вывод в json', () => {
+  const filepath1 = getFixturePath('file1.json');
+  const filepath2 = getFixturePath('file2.json');
+  const result = '[{"key":"common","type":"nested","children":[{"key":"follow","value":false,"type":"added"},{"key":"setting1","value":"Value 1","type":"unchanged"},{"key":"setting2","value":200,"type":"deleted"},{"key":"setting3","value1":true,"value2":null,"type":"changed"},{"key":"setting4","value":"blah blah","type":"added"},{"key":"setting5","value":{"key5":"value5"},"type":"added"},{"key":"setting6","type":"nested","children":[{"key":"doge","type":"nested","children":[{"key":"wow","value1":"","value2":"so much","type":"changed"}]},{"key":"key","value":"value","type":"unchanged"},{"key":"ops","value":"vops","type":"added"}]}]},{"key":"group1","type":"nested","children":[{"key":"baz","value1":"bas","value2":"bars","type":"changed"},{"key":"foo","value":"bar","type":"unchanged"},{"key":"nest","value1":{"key":"value"},"value2":"str","type":"changed"}]},{"key":"group2","value":{"abc":12345,"deep":{"id":45}},"type":"deleted"},{"key":"group3","value":{"deep":{"id":{"number":45}},"fee":100500},"type":"added"}]';
 
-//   expect(gendiff(filepath1, filepath2, 'json')).toEqual(result);
-// });
+  expect(gendiff(filepath1, filepath2, 'json')).toEqual(result);
+});
