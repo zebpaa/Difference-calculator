@@ -54,7 +54,7 @@ test('Рекурсивное сравнение yml файлов', () => {
     }
 }`;
 
-  expect(gendiff(filepath1, filepath2, 'stylish')).toEqual(result);
+  expect(gendiff(filepath1, filepath2)).toEqual(result);
 });
 
 test('Рекурсивное сравнение json файлов', () => {
@@ -106,7 +106,7 @@ test('Рекурсивное сравнение json файлов', () => {
     }
 }`;
 
-  expect(gendiff(filepath1, filepath2)).toEqual(result);
+  expect(gendiff(filepath1, filepath2, 'stylish')).toEqual(result);
 });
 
 test('Плоский формат', () => {
