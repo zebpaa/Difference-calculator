@@ -126,6 +126,7 @@ Property 'group3' was added with value: [complex value]`;
 
   expect(gendiff(filepath1, filepath2, 'plain')).toEqual(result);
 });
+
 // test('Вывод в json', () => {
 //   const filepath1 = getFixturePath('file1.json');
 //   const filepath2 = getFixturePath('file2.json');
