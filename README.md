@@ -1,5 +1,7 @@
 <h1 style="text-align: center;">2-ой учебный проект на Хекслет: 'Вычислитель отличий'</h1>
 
+<a href="https://ru.hexlet.io/programs/frontend/projects/46">Ссылка на проект</a>
+
 ## Описание
 
 Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например <a href="http://www.jsondiff.com/">http://www.jsondiff.com/</a>. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменений в конфигурационных файлах.
@@ -18,6 +20,12 @@
 ### Рекурсивное сравнение файлов (.json и .yml) с абсолютным и относительным путем к файлу
 [![asciicast](https://asciinema.org/a/L0g0b7Cpf7x9LQE1jYLxc9mku.svg)](https://asciinema.org/a/L0g0b7Cpf7x9LQE1jYLxc9mku)
 
+### Плоский формат (.json и .yml) с абсолютным и относительным путем к файлу
+[![asciicast](https://asciinema.org/a/JM8NfiF4HspIo6Kts1vxHQj8O.svg)](https://asciinema.org/a/JM8NfiF4HspIo6Kts1vxHQj8O)
+
+### Вывод в формате json (.json и .yaml) с относительным и абсолютным путем к файлу
+[![asciicast](https://asciinema.org/a/fMDlIr6BjQwJwyoA1bf1CTLi7.svg)](https://asciinema.org/a/fMDlIr6BjQwJwyoA1bf1CTLi7)
+
 ## Установка
 
 ### Менеджер пакетов
@@ -28,15 +36,17 @@
 $ npm install @hexlet/code
 ```
 
-Запуск:
+Запуск: 
 
 ```bash
-$ gendiff -h
-$ gendiff filepath1.json filepath2.json
-$ gendiff filepath1.json filepath2.json -f stylish
-$ gendiff filepath1.json filepath2.json -f json
-$ gendiff filepath1.json filepath2.json -f plain
+$ gendiff -h #help info
+$ gendiff filepath1 filepath2 #default stylish format
+$ gendiff filepath1 filepath2 -f stylish #stylish format
+$ gendiff filepath1 filepath2 -f json #json format
+$ gendiff filepath1 filepath2 -f plain #plain format
 ```
+
+P.S. filepath1 и filepath2 - абсолютные или относительные пути к файлам
 
 ### Hexlet tests and linter status:
 
