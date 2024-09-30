@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">2-ой учебный проект на Хекслет: 'Вычислитель отличий'</h1>
+<h1 style="text-align: center;">Вычислитель отличий</h1>
 
 [![Actions Status](https://github.com/zebpaa/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/zebpaa/frontend-project-46/actions) 
 [![Maintainability](https://api.codeclimate.com/v1/badges/f63bfcf40c099af9031e/maintainability)](https://codeclimate.com/github/zebpaa/frontend-project-46/maintainability) 
