@@ -5,7 +5,6 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f63bfcf40c099af9031e/test_coverage)](https://codeclimate.com/github/zebpaa/frontend-project-46/test_coverage) 
 [![zebpaa-check](https://github.com/zebpaa/frontend-project-46/actions/workflows/zebpaa-check.yml/badge.svg)](https://github.com/zebpaa/frontend-project-46/actions/workflows/zebpaa-check.yml)
 
-<a href="https://ru.hexlet.io/programs/frontend/projects/46">Ссылка на проект</a>
 
 ## Описание
 
